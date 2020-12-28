@@ -1,19 +1,22 @@
-# Stock.js
+# Finance.io
 
 
-[![npm (scoped)](https://img.shields.io/npm/v/@joeleeofficial/stock.js.svg)](https://www.npmjs.com/package/stock.js)
-[![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/stock.s.svg)](https://www.npmjs.com/package/stock.js)
+[![npm (scoped)](https://img.shields.io/npm/v/@joeleeofficial/finance.io.svg)](https://www.npmjs.com/package/finance.io)
+[![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/finance.io.svg)](https://www.npmjs.com/package/finance.io)
 
 
 ## Install
 
 ```
-$ npm install stock.js@latest
+$ npm install finance.io@latest
 ```
 ## Version 
 
-- v1.0.0@latest
+- v0.0.3@latest
 
+- v0.0.2
+
+- v0.0.1
 
 
 
@@ -22,7 +25,7 @@ $ npm install stock.js@latest
 
 ### Get Financial Data
 ```js
-const stock = require("stock.js");
+const stock = require("finance.io");
 
 // To Get Financial Data, Do
 
@@ -386,8 +389,13 @@ Make Sure The Value Is Valid !
 - [@joeleeofficial](https://github.com/joeleeofficial)
 - [Contact @joeleeofficial](mailto:tojoeleeofficial@gmail.com)
 
+### Contributors 
+
+- Joe Lee Official
 
 
 ### Need Help ? 
 
 [Join stock.js Discord Community Now](https://discord.gg/hZMCwDXfQb)
+
+
