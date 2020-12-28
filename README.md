@@ -12,7 +12,14 @@ $ npm install finance.io@latest
 ```
 ## Version 
 
-- v0.0.6@latest
+
+ 
+
+- v0.0.8@latest
+
+- v0.0.7
+
+- v0.0.6
 
 - v0.0.5
 
