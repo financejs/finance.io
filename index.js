@@ -1,4 +1,4 @@
-const stock = require('stock.js');
+const stock = require('finance.js');
 // defined everything 
 
 stock.data.getQuote('AAPL')
