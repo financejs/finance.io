@@ -10,41 +10,64 @@
 ```
 $ npm install finance.io@latest
 ```
+
+### Define finance.io
+
+
+```
+const stock = require('finance.io')
+```
+
+
 ## Version 
 
+- v0.1.2@latest
 
- 
+- v0.1.1
 
-- v0.0.8@latest
+- v0.1.0
 
-- v0.0.7
+- v0.0.9
 
-- v0.0.6
-
-- v0.0.5
-
-- v0.0.4
-
-- v0.0.3
-
-- v0.0.2
-
-- v0.0.1
-
+- v0.0.8 <
 
 
 
 ## Usage
 
-### Get Financial Data
-```js
-const stock = require("finance.io");
+> Recommend Using Version 0.1.0 And Above
 
-// To Get Financial Data, Do
+#### Formats
 
-stock.get("GOOGL") // this is an example for GOOGL
+```
+// Example
 
-For Example, You Will Get This 
+stock.getInfo("GOOGL").then( (data) => {
+   // You May Modify The Output
+   // default : console.log(JSON.stringify(data, null, 4)
+   // note : Please Use "JSON.stringify(data, null, 4)" // In Every Output
+});
+```
+
+### Get Stock Quote Data
+
+To Get Stock Quote Of GOOGL Use The Code Snippet Below.
+
+```
+// v0.1.0 and above
+
+stock.getInfo("GOOGL").then( (data) => {
+    console.log(JSON.stringify(data, null, 4));
+});
+
+
+// v0.1.0 below
+
+stock.get("GOOGL") // returning the data in console.log
+
+
+// Returning Data 
+
 [
   { quote: 'GOOGL',
   currentPrice: 1734.16,
@@ -91,49 +114,26 @@ For Example, You Will Get This
   
   ] 
 
-
-```
-### Get Final Data
-
 ```
 
+### Get Company Data
 
-stock.finance("GOOGL") // An Example For GOOGL
-
-you will get something like this :
-[
-  { quote: 'GOOGL',
-  fiftyTwoWeekRange: '1008.87 - 1843.83',
-  fiftyTwoWeekLow: 1008.87,
-  fiftyTwoWeekHigh: 1843.83,
-  trailingPE: 33.509045,
-  epsTrailingTwelveMonths: 51.752,
-  epsForward: 61.25,
-  epsCurrentYear: 51.61,
-  priceEpsCurrentYear: 33.601242,
-  sharesOutstanding: 300644000,
-  bookValue: 314.169,
-  marketCap: 1174577872896,
-  forwardPE: 28.312817,
-  priceToBook: 5.5198317,
-  fullExchangeName: 'NasdaqGS' }
-  ]
-
-
+Get Specific Company Data
 
 ```
+// v0.1.0 and above
+
+stock.getCompany("AAPL").then( (data) => {
+    console.log(JSON.stringify(data, null, 4));
+});
 
 
-### Get Company Information 
+// v0.1.0 below
+
+stock.get.company("AAPL")
 
 
-```
-
-stock.getCompany("GOOGL") // Example : GOOGL
-
-
-you will get something like this in you console
-note : the data down here is a fake data
+// Returning Data
 
 [
   { quote: 'GOOGL',
@@ -151,16 +151,63 @@ note : the data down here is a fake data
   fullTimeEmployees: 132121,
   headCompanyOfficers: 'Mr. Sundar  Pichai' }
 ]
+```
 
+### Get Filtered Financial Data
+
+```
+
+// v0.1.0 and above
+
+stock.getFinancial("GOOGL").then( (data) => {
+    console.log(JSON.stringify(data, null, 4));
+});
+
+
+// v0.1.0 below
+
+stock.get.financial("GOOGL")
+
+
+// Returning Data 
+
+[
+  { quote: 'GOOGL',
+  fiftyTwoWeekRange: '1008.87 - 1843.83',
+  fiftyTwoWeekLow: 1008.87,
+  fiftyTwoWeekHigh: 1843.83,
+  trailingPE: 33.509045,
+  epsTrailingTwelveMonths: 51.752,
+  epsForward: 61.25,
+  epsCurrentYear: 51.61,
+  priceEpsCurrentYear: 33.601242,
+  sharesOutstanding: 300644000,
+  bookValue: 314.169,
+  marketCap: 1174577872896,
+  forwardPE: 28.312817,
+  priceToBook: 5.5198317,
+  fullExchangeName: 'NasdaqGS' }
+  ]
 ```
 
 
 ### Get netSharePurchaseActivity
+
 ```
+// v0.1.0 and Above
 
-stock.netSharePurchaseActivity("GOOGL") // an example for google
+stock.nspa("GOOGL").then( (data) => {
+  console.log(JSON.stringify(data, null, 4));
+});
 
-you will get something like this : 
+
+
+// v0.1.0 below
+stock.netSharePurchaseActivity("GOOGL") 
+
+
+// Returning Data
+
 [
   { quote: 'GOOGL',
   buyInfoCount: 1,
@@ -175,25 +222,100 @@ you will get something like this :
 ]
 ```
 
+### Outside NYSE (stock.getFinancial)
 
-### More Example 
+> v0.1.0 and below will not work as the same way
+
+
+Stocks Outside NYSE Require A Corresponding Argument.
+What You Need Is Just Adding A Comma And A Value.
 
 ```
-Change The Value To Get Data From Different Company
+// Karex, 5247.KL
 
-Example :
-stock.get("AAPL")
+// v0.1.0 and above
+stock.getFinancial('5247', 'KL')
+.then( (data) => {
+  console.log(JSON.stringify(data, null, 4))
+});
 
-Make Sure The Value Is Valid !
+
+// v0.1.0 below
+
+stock.get.financial("5247.KL")
+
+// Returning Data
+
+{
+    "symbol": "5247",
+    "data": "financial",
+    "fiftyTwoWeekRange": "0.26 - 1.23",
+    "fiftyTwoWeekLow": 0.26,
+    "fiftyTwoWeekHigh": 1.23,
+    "trailingPE": 10.985915,
+    "epsTrailingTwelveMonths": 0.071,
+    "sharesOutstanding": 1002370000,
+    "bookValue": 0.464,
+    "marketCap": 781848576,
+    "priceToBook": 1.6810344,
+    "fullExchangeName": "Kuala Lumpur"
+}
+
 ```
+
+### Test finance.io functions
+
+```
+stock.test()
+```
+
+## Extra Features
+
+### Get A Random Number
+
+Value Is Require. For Example : `stock.random(1,8)`
+The Returning Data Should Be `1` to `8`
+
+```
+stock.random(1,8)
+
+// Display The Data By Doing 
+
+console.log(stock.random(1,8))
+
+
+// Returning Data 
+
+Example : `1.0246939366192591`
+```
+
+
+## Author 
+
+- [@joeleeofficial](https://github.com/joeleeofficial)
+
+
+### Contributors 
+
+- [Joe Lee Official](mailto:tojoeleeofficial@gmail.com)
+
+
+### Need Help ? 
+
+[Join stock.js Discord Community Now](https://discord.gg/hZMCwDXfQb)
+
+
+<a href="https://discord.gg/hZMCwDXfQb"><img src="https://discordapp.com/api/guilds/793118787460399154/embed.png?style=banner2"></a>
+
+
 ## License 
 
 
 ```
 
-                                 Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
+                    Apache License
+              Version 2.0, January 2004
+            http://www.apache.org/licenses/
 
    TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
@@ -379,7 +501,7 @@ Make Sure The Value Is Valid !
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright [2021] [JoeLee]
+   Copyright 2020 - 2021 JoeLee
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -397,18 +519,6 @@ Make Sure The Value Is Valid !
 
 
 
-## Author 
 
-- [@joeleeofficial](https://github.com/joeleeofficial)
-- [Contact @joeleeofficial](mailto:tojoeleeofficial@gmail.com)
-
-### Contributors 
-
-- Joe Lee Official
-
-
-### Need Help ? 
-
-[Join stock.js Discord Community Now](https://discord.gg/hZMCwDXfQb)
 
 
