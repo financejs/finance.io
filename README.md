@@ -1,6 +1,7 @@
 # Finance.io
 
  <a href="https://nodei.co/npm/finance.io/"><img src="https://nodei.co/npm/finance.io.png?downloads=true&stars=true" alt="NPM info" /></a>
+ 
 [![npm (scoped)](https://img.shields.io/npm/v/finance.io.svg)](https://www.npmjs.com/package/finance.io)
 [![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/finance.io.svg)](https://www.npmjs.com/package/finance.io)
 
