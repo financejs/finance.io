@@ -1,10 +1,10 @@
 # Finance.io
- 
+
+
 [![npm (scoped)](https://img.shields.io/npm/v/finance.io.svg)](https://www.npmjs.com/package/finance.io)
 [![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/finance.io.svg)](https://www.npmjs.com/package/finance.io)
 
- <a href="https://nodei.co/npm/finance.io/"><img src="https://nodei.co/npm/finance.io.png?downloads=true&stars=true" alt="NPM info" /></a>
-
+<a href="https://nodei.co/npm/finance.io/"><img src="https://nodei.co/npm/finance.io.png?downloads=true&stars=true" alt="NPM info" /></a>
 
 
 ## Install
@@ -23,7 +23,9 @@ const stock = require('finance.io')
 
 ## Version 
 
-- v0.1.4@latest
+- v0.1.5@latest
+
+- v0.1.4
 
 - v0.1.3
 
@@ -31,9 +33,8 @@ const stock = require('finance.io')
 
 - v0.1.1
 
-- v0.1.0
+- v0.1.0 <
 
-- v0.0.9 <
 
 
 
@@ -201,7 +202,7 @@ stock.get.financial("GOOGL")
 ```
 // v0.1.0 and Above
 
-stock.nspa("GOOGL").then( (data) => {
+stock.getNspa("GOOGL").then( (data) => {
   console.log(JSON.stringify(data, null, 4));
 });
 
@@ -215,6 +216,7 @@ stock.netSharePurchaseActivity("GOOGL")
 
 [
   { quote: 'GOOGL',
+  data: 'Get netSharePurchaseActivity',
   buyInfoCount: 1,
   buyInfoShares: 1459,
   buyPercentInsiderShares: 0.002,
