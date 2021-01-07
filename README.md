@@ -23,7 +23,9 @@ const stock = require('finance.io')
 
 ## Version 
 
-- v0.1.5@latest
+- v0.1.6@latest
+
+- v0.1.5
 
 - v0.1.4
 
